@@ -1,0 +1,21 @@
+CREATE DATABASE jorge
+USE jorge
+CREATE TABLE video_games(name VARCHAR(30), platform VARCHAR(30),year_of_rel
+                           -> ease YEAR, genre VARCHAR(15), publisher VARCHAR(20), na_sales FLOAT,eu_sale
+                           -> s FLOAT, jp_sales FLOAT, other_sales FLOAT, global_sales FLOAT,critic_score
+                           ->  INT, critic_count INT, user_score FLOAT, user_count INT, rating VARCHAR(5)
+                           ->  );
+
+LOAD DATA LOCAL INFILE "videoGames_Sales.csv" INTO TABLE video_games FIELDS
+                           ->  TERMINATED BY ","
+
+SELECT name, publisher, global_sales FROM video_games where platform = "wii";
+
+SELECT name, publisher, global_sales FROM video_games where platform = "wii" and global_sales > 50;
+
+SELECT publisher, COUNT(*) AS total FROM video_games GROUP BY publisher HAVING total < 100;
+
+SELECT genre, COUNT(*) AS total FROM video_games GROUP BY genre;
+
+SELECT name, publisher, global_sales FROM video_games where eu_sales > 8 ORDER BY global_sales DESC;
+

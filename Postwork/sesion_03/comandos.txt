@@ -19,3 +19,14 @@ SELECT genre, COUNT(*) AS total FROM video_games GROUP BY genre;
 
 SELECT name, publisher, global_sales FROM video_games where eu_sales > 8 ORDER BY global_sales DESC;
 
+SELECT name,platform,publisher,genre FROM video_games WHERE rating ="M"
+
+SELECT name,platform,publisher,genre FROM video_games WHERE rating ="M" and critic_count >= 60 and jp_sales < 7
+
+SELECT name,platform,publisher,genre, (SELECT AVG(global_sales) FROM video_games) AS avg_global_sales FROM video_games LIMIT 10;
+
+SELECT name,platform,publisher,genre, (SELECT AVG(global_sales) FROM video_games) AS avg_global_sales FROM video_games WHERE platform = "X360" LIMIT 10;
+
+SELECT name,platform,publisher,genre,global_sales,  (SELECT MAX(global_sales) FROM video_games) AS max_global_sales FROM video_games WHERE platform = "X360" LIMIT 10; 
+
+

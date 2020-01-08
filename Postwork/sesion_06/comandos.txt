@@ -1,0 +1,66 @@
+todos los videojuegos que tengan "Call of Duty" en el titulo
+	filter:    {Name: /Call of Duty.*/i}
+
+todos los videojuegos que tengan "Call of Duty" en el titulo
+y que hayan sido publicados en la decada 2010
+	filter:    {Name: /Call of Duty.*/i, Year_of_Release: /201./}
+
+AGREGACIONES
+
+1)el rango de años para los juegos publicados por Activision
+
+  $match
+    {
+      Publisher:"Activision"
+  
+    }
+  
+  $group
+    {
+      _id: "null",
+       anio_min: {
+       $min : "$Year_of_Release"
+    },
+      anio_max:{
+      $max:"$Year_of_Release"
+    }
+    }
+
+2) el rango de ventas globales de videojuegos de tipo Shooter lanzados para PS4
+
+  $match
+    {
+      Genre:"Shooter",
+      Platform:"Wii"
+    }
+
+  $group
+    {
+      _id: "null",
+       min_sales: {
+         $min : "$Global_Sales"
+       },
+       max_sales:{
+         $max:"$Global_Sales"
+       }
+    }
+
+3)total de videojuegos en la base segun su Publicador lanzados para Xbox 360 (x360)
+
+  $match
+    {
+      Platform:"X360"
+    }
+
+  $group
+    {
+      _id:"$Publisher",
+      total: {
+         $sum : 1
+      }
+    }
+
+  $sort
+    {
+      total: -1
+    }

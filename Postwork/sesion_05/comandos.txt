@@ -1,0 +1,15 @@
+Videojuegos que fueron lanzados en 2008 y 2009
+	filter:   {Year_of_Release: {$in: ["2008","2009"]}}
+
+Videojuegos que fueron lanzados en 2008 y 2009 y que sus ventas globales fueron del 0.51
+	filter:   {Year_of_Release: {$in: ["2008","2009"]}, Global_Sales:"0.51"}
+
+videojuego lanzados para la plataforma Xbox One (xOne)
+	filter:   {Platform:"XOne"}
+	proyect:  {Name:1, Publisher:1, Year_of_Release:1, Global_Sales:1, Platform:1, Genre:1}
+
+videojuegos lanzados en el año 2015 que sean para la plataforma PS4 y que sean de genero Shooter
+	filter: {Genre:"Shooter", Year_of_Release: "2015", Platform:"PS4"}
+
+videojuegos que fueron publicados por Activision y que son de genero Shooter
+	filter: {Genre:"Shooter", Publisher:"Activision"}

@@ -1,0 +1,37 @@
+Responde las siguientes preguntas:
+
+¿Qué es una serie de tiempo?
+datos estadísticos que se recopilan, obsrevan o regitrans en intervalos
+de tiempos regulares
+ 
+¿Cómo puedo crear una serie de tiempo en R?
+en R existe la función ts() que nos convierte un vector a una serie
+
+¿Qué es una serie de tiempo estacionaria?
+se dice que una serie es estacionaria cuando su media, varianza y 
+autocovarianza son invariantes en el tiempo.
+
+¿Cómo puedo conocer la tendencia, estacionalidad y error de una serie de tiempo?
+
+El decompose() y el forecast :: stl () divide las series temporales en 
+componentes de estacionalidad, tendencia y error.
+
+¿Qué son los lags?
+
+Cuando la base de tiempo se desplaza por un número determinado de períodos, 
+se crea un retraso de series de tiempo. Los retrasos de una serie 
+de tiempo a menudo se utilizan como variables explicativas para
+ modelar la serie de tiempo real en sí.
+
+¿Cómo puedo crear lags de una serie de tiempo?
+
+laggedTS <- lag(tsData, 3) # desplazado 3 períodos antes. 
+Use -3 para #avanzar 3 puntos hacia adelante.
+
+¿Qué es la autocorrelación y la autocorrelación parcial?
+
+Muestra si los estados anteriores (observaciones rezagadas) de la serie
+ temporal influyen en el estado actual. En el gráfico de autocorrelación, si
+ la autocorrelación cruza la línea azul discontinua, 
+ significa que el retraso específico se correlaciona significativamente con 
+ las series actuales.
